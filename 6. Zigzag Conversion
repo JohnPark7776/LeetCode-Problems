@@ -1,0 +1,18 @@
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1:
+            return s
+        turn = False
+        hold = ['' for _ in range(numRows)]
+        i = 0
+        for ch in s:
+            if turn:
+                i -= 1
+            hold[i] += ch
+            if i == numRows-1:
+                turn = True
+            elif i == 0:
+                turn = False
+            if not turn:
+                i += 1
+        return "".join(hold)

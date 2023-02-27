@@ -1,0 +1,13 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        test = {}
+        j = -1
+        result = 0
+        for i, ch in enumerate(s):
+            if ch in test and test[ch] > j:
+                j = test[ch]
+            else:
+                if result < i - j:
+                    result = i - j
+            test[ch] = i
+        return result

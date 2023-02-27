@@ -1,0 +1,8 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        temp = {}
+        for i,digit in enumerate(nums):
+            test = target-digit
+            if test in temp and temp[test] != i:
+                return [i,temp[test]]
+            temp[digit] = i 

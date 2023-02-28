@@ -1,7 +1,7 @@
 class Solution:
     """
-    Runetime: 61 ms
-    Memory: 14.1 MB
+    Runetime: 61 ms (Beats 79.98%)
+    Memory: 14.1 MB (Beats 12.9%)
     """
     def lengthOfLongestSubstring(self, s: str) -> int:
         test = {}

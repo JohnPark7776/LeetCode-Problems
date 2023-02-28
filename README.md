@@ -1,5 +1,5 @@
 # LeetCode-Problems
 Solved LeetCode Problems
 
-All done in Python 3.
+All solved in Python 3. Displaying my best runtime code.
 Click "..." next to Title of Problem to see description of Problem

@@ -1,4 +1,8 @@
 class Solution:
+    """
+    Runtime: 37 ms (Beats 95.15%)
+    Memory: 14 MB (Beats 34.35%)
+    """
     def isMatch(self, s: str, p: str) -> bool:
         def dfs(new_s, new_p, cache):
             if (new_s, new_p) in cache:

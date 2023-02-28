@@ -1,7 +1,7 @@
 class Solution:
     """
-    Runtime: 62 ms
-    Memory: 15.2 MB
+    Runtime: 62 ms (Beats 79.43%)
+    Memory: 15.2 MB (Beats 17.35)
     """
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         temp = {}

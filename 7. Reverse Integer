@@ -1,4 +1,8 @@
 class Solution:
+    """
+    Runtime: 32 ms (Beats 78.97%)
+    Memory: 13.9 MB (Beats 54.50%)
+    """
     def reverse(self, x: int) -> int:
         y = str(abs(x))
         y = int(y[::-1])

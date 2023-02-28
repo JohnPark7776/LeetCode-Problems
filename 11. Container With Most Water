@@ -1,4 +1,7 @@
 class Solution:
+    """
+    Runtime: 680 ms (Beats 95.68%)
+    Memory: 27.3 MB (Beats 84.27%)
     def maxArea(self, height: List[int]) -> int:
         area, low, high = 0, 0, len(height)-1
         while low < high:

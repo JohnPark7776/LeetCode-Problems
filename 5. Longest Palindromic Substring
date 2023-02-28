@@ -1,9 +1,9 @@
 class Solution:
+    """
+    Runtime: 165 ms (Beats 94.35%)
+    Memory: 13.9 MB (Beats 86.35%)
+    """
     def longestPalindrome(self, s: str) -> str:
-        """
-        :type s: str
-        :rtype: str
-        """
         if len(s) == 1 or s == s[::-1]:
             return s
         def expand(left: int, right: int):

@@ -1,4 +1,8 @@
 class Solution:
+    """
+    Runetime: 61 ms
+    Memory: 14.1 MB
+    """
     def lengthOfLongestSubstring(self, s: str) -> int:
         test = {}
         j = -1

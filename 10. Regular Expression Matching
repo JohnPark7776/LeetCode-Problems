@@ -1,0 +1,18 @@
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        def dfs(new_s, new_p, cache):
+            if (new_s, new_p) in cache:
+                return cache[(new_s,new_p)]
+            if not new_p:
+                return not new_s
+            if new_p[-1] == '*':
+                if dfs(new_s, new_p[:-2], cache):
+                    return True
+                elif new_s and (new_s[-1] == new_p[-2] or new_p[-2] == '.') and dfs(new_s[:-1], new_p, cache):
+                    cache[(new_s,new_p)] = True
+                    return True
+            if new_s and (new_s[-1] == new_p[-1] or new_p[-1] == '.') and dfs(new_s[:-1], new_p[:-1], cache):
+                cache[(new_s,new_p)] = True
+                return True
+            cache[(new_s,new_p)] = False
+        return dfs(s, p, {})

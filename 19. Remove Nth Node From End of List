@@ -1,0 +1,17 @@
+class Solution:
+   """
+   Runtime: 23 ms (Beats 99.31%)
+   Memory: 14 MB (Beats 12.72%)
+   """
+  def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+      first = head
+      for i in range(n):
+          first = first.next
+      if not first:
+          return head.next
+      second = head
+      while first.next != None:
+          first = first.next
+          second = second.next
+      second.next = second.next.next
+      return head

@@ -1,0 +1,15 @@
+class Solution:
+  """
+  Runtime: 34 ms (Beats 77.5%)
+  Memory: 13.8 MB (Beats 80.89%)
+  """
+  def longestCommonPrefix(self, strs: List[str]) -> str:
+      short = min(strs, key=len)
+      for i in strs:
+          if not short:
+              return short
+          for j in range(len(short)):
+              if i[j] != short[j]:
+                  short = short[:j]
+                  break
+      return short

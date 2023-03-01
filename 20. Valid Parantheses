@@ -1,0 +1,21 @@
+class Solution:
+  """
+  Runtime: 20 ms (Beats 99.31%)
+  Memory: 14 MB (Beats 17.94%)
+  """
+  def isValid(self, s: str) -> bool:
+      END = {'(': ')', '{': '}', '[': ']'}
+      length = len(s)
+      if length % 2:
+          return False
+      elif length == 0:
+          return True
+      hold = []
+      for i in s:
+          if i in END:
+              hold.append(END[i])
+          elif hold and i == hold[-1]:
+              hold.pop()
+          else:
+              return False
+      return not hold

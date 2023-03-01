@@ -1,0 +1,31 @@
+class Solution:
+  """
+  Runtime: 27 ms (Beats 91.77%)
+  Memory: 13.8 MB (Beats 98.54%)
+  """
+  def letterCombinations(self, digits: str) -> List[str]:
+      phone_letter = {
+          "2":['a','b','c'],
+          "3":['d','e','f'],
+          "4":['g','h','i'],
+          "5":['j','k','l'],
+          "6":['m','n','o'],
+          "7":['p','q','r','s'],
+          "8":['t','u','v'],
+          "9":['w','x','y','z']
+      }  
+      amt = 1
+      for i in digits:
+          amt *= len(phone_letter[i])
+      if amt == 1:
+          return []
+      ans = ["" for i in range(amt)]
+      for num in digits:
+          i = 0
+          for j in range(amt):
+              if i == len(phone_letter[num]):
+                  i = 0
+              ans[j] += phone_letter[num][i]
+              i += 1
+          ans.sort()
+      return ans

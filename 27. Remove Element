@@ -1,0 +1,9 @@
+class Solution:
+  """
+  Runtime: 35 ms (Beats 66.41%)
+  Memory: 13.8 MB (Beats 52.59%)
+  """
+  def removeElement(self, nums: List[int], val: int) -> int:
+      while val in nums:
+          nums.remove(val)
+      return len(nums)

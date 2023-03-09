@@ -1,0 +1,16 @@
+class Solution:
+  """
+  Runtime: 30 ms (Beats 75.29%)
+  Memory: 13.8 MB (Beats 53.46%)
+  """
+  def strStr(self, haystack: str, needle: str) -> int:
+      nl = len(needle)
+      for i in range(len(haystack)):
+          if haystack[i] == needle[0]:
+              try:
+                  test = "".join([haystack[j] for j in range(i, (i+nl))])
+                  if needle == test:
+                      return i
+              except IndexError:
+                  return -1
+      return -1

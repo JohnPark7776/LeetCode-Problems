@@ -1,0 +1,10 @@
+class Solution:
+  """
+  Runtime: 33 ms (Beats 81.27)
+  Memory: 13.8 MB (60.95%)
+  """
+  def multiply(self, num1: str, num2: str) -> str:
+      def loop(nums,x=0):
+          for i in nums: x = x * 10 + (ord(i) - 48)
+          return x
+      return str(loop(num1)*loop(num2))

@@ -1,0 +1,21 @@
+class Solution:
+  """
+  Runtime: 45 ms (Beats 93.53%)
+  Memory: 14.6 MB (Beats 71.97%)
+  """
+  def searchInsert(self, nums: List[int], target: int) -> int:
+      if target > nums[-1]:
+          return len(nums)
+      elif target <= nums[0]:
+          return 0
+      first, last = 0, len(nums)
+      while first < last:
+          mid = (first + last)//2
+          mid_value = nums[mid]
+          if mid_value == target:
+              return mid
+          elif target < mid_value:
+              last = mid
+          else:
+              first = mid + 1
+      return first

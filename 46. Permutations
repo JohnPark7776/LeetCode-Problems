@@ -1,0 +1,14 @@
+class Solution:
+  """
+  Runtime: 36 ms (Beats 90.84%)
+  Memory: 14 MB (Beats 77.20%)
+  """
+  def permute(self, nums: List[int]) -> List[List[int]]:
+      answer = []
+      def perm(n, path):
+          if not n:
+              answer.append(path)
+          for i in range(len(n)):
+              perm(n[:i]+n[i+1:], path+[n[i]])
+      perm(nums, [])
+      return answer

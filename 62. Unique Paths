@@ -1,0 +1,59 @@
+class Solution:
+  """
+  Runtime: 30 ms(Beats 80.34%)
+  Memory: 14.3 MB(Beats 5.79%)
+  """
+  def uniquePaths(self, m: int, n: int) -> int:
+      if m == 1 or n == 1:
+          return 1
+      elif m == 2:
+          return n
+      elif n == 2:
+          return m
+      largest_num, smallest_num = max(m,n), min(m,n)
+      hold = {(3,3):6}
+      for i in range(4, largest_num+1):
+          hold[(i,3)] = hold[(i-1,3)] + i
+      if m == 3 or n == 3:
+          return hold[(largest_num,3)]
+      def dp(m1, n1):
+          if (m1,n1) in hold:
+              return hold[(m1,n1)]
+          if m1 == n1:
+              hold[(m1,n1)] = dp(m1, n1-1) * 2
+              hold[(n1,m1)] = hold[(m1,n1)]
+              return hold[(m1,n1)]
+          else:
+              hold[(m1,n1)] = dp(m1-1,n1)+dp(m1,n1-1)
+              hold[(n1,m1)] = hold[(m1,n1)]
+              return hold[(m1,n1)]
+      return dp(largest_num,smallest_num)
+      
+class Solution:
+  """
+  Runtime: 36 ms(Beats 42.17%)
+  Memory: 13.8 MB(Beats 63.63%)
+  """
+  def uniquePaths(self, m: int, n: int) -> int:
+      if m == 1 or n == 1:
+          return 1
+      elif m == 2:
+          return n
+      elif n == 2:
+          return m
+      hold = [i for i in range(n+1) if i > 1]
+      temp = []
+      i = 1
+      while (i+1) < m:
+          for j in range(n):
+              if j == 0:
+                  temp.append(i+2)
+              else:
+                  try:
+                      temp.append((hold[j]+temp[j-1]))
+                  except:
+                      break
+          i += 1
+          hold = [b for b in temp]
+          temp.clear()
+      return hold[-1]

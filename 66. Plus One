@@ -1,0 +1,12 @@
+class Solution:
+  """
+  Runtime: 22 ms(Beats 99.36%)
+  Memory: 13.9 MB(Beats 47.83%)
+  """
+  def plusOne(self, digits: List[int]) -> List[int]:
+      if digits[-1] != 9:
+          digits[-1] = digits[-1] + 1
+          return digits
+      remove = {' ', '[', ',', ']'}
+      ans = int("".join([str(i) for i in str(digits) if i not in remove]))
+      return [int(i) for i in str(ans+1)]

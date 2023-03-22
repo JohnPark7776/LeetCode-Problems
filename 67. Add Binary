@@ -1,0 +1,7 @@
+class Solution:
+  """
+  Runtime: 34 ms(Beats 70.16%)
+  Memory: 13.8 MB(Beats 97.34%)
+  """
+  def addBinary(self, a: str, b: str) -> str:
+      return bin(int(a,2) + int(b,2))[2:]

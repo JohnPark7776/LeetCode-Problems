@@ -1,0 +1,18 @@
+class Solution:  
+  """
+  Runtime: 34 ms(Beats 45.55%)
+  Memory: 13.9 MB(Beats 46.38%)
+  """
+  def climbStairs(self, n: int) -> int:
+      condition = {
+          1 : 1,
+          2 : 2,
+          3 : 3
+      }
+      def dp(n1, hold):
+          if n1 in hold:
+              return hold[n1]
+          else:
+              hold[n1] = dp(n1-1,hold) + dp(n1-2,hold)
+              return hold[n1]
+      return dp(n,condition)

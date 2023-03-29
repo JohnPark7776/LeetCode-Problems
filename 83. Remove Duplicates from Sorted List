@@ -1,0 +1,12 @@
+class Solution:
+  """
+  Runtime: 48 ms(Beats 28.56%)
+  Memory: 13.9 MB(Beats 60.3%)
+  """
+  def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+      temp = head
+      while temp:
+          while temp.next and temp.val == temp.next.val:
+              temp.next = temp.next.next
+          temp = temp.next
+      return head

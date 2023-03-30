@@ -1,0 +1,13 @@
+class Solution:
+  """
+  Runtime: 914 ms(Beats 97.15%)
+  Memory: 25.1 MB(Beats 30.24%)
+  """
+  def maxProfit(self, prices: List[int]) -> int:
+      low, prof = prices[0], 0
+      for val in prices:
+          if val < low:
+              low = val
+          elif prof < val - low:
+              prof = val - low
+      return prof    

@@ -1,0 +1,23 @@
+class Solution:
+  """
+  Runtime: 32 ms(Beats 85.2%)
+  Memory: 14.1 MB(Beats 74.50%)
+  """
+  def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+      if root == None:
+          return []
+      stack, ans = [[root]], [[root.val]]
+      while stack:
+          temp, stack2 = [], []
+          node = stack.pop()
+          for n in node:
+              if n.left:
+                  temp.append(n.left.val)
+                  stack2.append(n.left)
+              if n.right:
+                  temp.append(n.right.val)
+                  stack2.append(n.right)
+          if stack2:
+              stack.append(stack2)
+              ans.append(temp)
+      return ans

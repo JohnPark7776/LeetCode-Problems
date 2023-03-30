@@ -1,0 +1,14 @@
+class Solution:
+  """
+  Runtime: 43 ms(Beats 79.86%)
+  Memory: 16.6 MB(Beats 38.26%)
+  """
+  def isValidBST(self, root: Optional[TreeNode]) -> bool:
+      def isBST(small, big, node):
+          if node:
+              return (small < node.val < big 
+                  and isBST(small, node.val, node.left) 
+                  and isBST(node.val, big, node.right))
+          else:
+              return True
+      return isBST(float(-inf), float(inf), root)     
